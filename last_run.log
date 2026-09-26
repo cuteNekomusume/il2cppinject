@@ -1,0 +1,96 @@
+{
+  "path": "/storage/emulated/0/Download/ilbtool/IL2CPP Tool v1.2.5.so",
+  "size": 29115704,
+  "md5": "16f8c9e164386ff669a7b2773343fd52",
+  "abi": "arm64-v8a",
+  "machine": "AArch64",
+  "bits": 64,
+  "elf_type": "1",
+  "soname": "libTool.so",
+  "needed": [
+    "libEGL.so",
+    "libGLESv3.so",
+    "libandroid.so",
+    "libc.so",
+    "libdl.so",
+    "liblog.so",
+    "libm.so",
+    "libz.so"
+  ],
+  "has_jni_onload": true,
+  "init_array_nonempty": false,
+  "self_starting": false,
+  "java_class": "imgui.il2cpp.tool.NativeMethods",
+  "natives": [
+    {
+      "name": "onDrawFrame",
+      "descriptor": "()V",
+      "from_signature": false,
+      "owner": "imgui.il2cpp.tool.NativeMethods"
+    },
+    {
+      "name": "onSurfaceCreate",
+      "descriptor": "(Landroid/view/Surface;)V",
+      "from_signature": false,
+      "owner": "imgui.il2cpp.tool.NativeMethods"
+    },
+    {
+      "name": "onSurfaceChanged",
+      "descriptor": "(II)V",
+      "from_signature": false,
+      "owner": "imgui.il2cpp.tool.NativeMethods"
+    }
+  ],
+  "boot_method": "onSurfaceCreate",
+  "boot_descriptor": "(Landroid/view/Surface;)V",
+  "boot_return": "V",
+  "lib_base": "Tool",
+  "lib_file": "libTool.so",
+  "warnings": [
+    "该 so 没有构造器且 JNI_OnLoad 只做初始化，必须由 Java 侧调用入口方法才会启动"
+  ]
+}
+工作目录: /data/data/com.termux/files/home/il2cppinject/.work/Phigros_4.0.0.apk_0926-212928
+
+$ apktool d -f -o /data/data/com.termux/files/home/il2cppinject/.work/Phigros_4.0.0.apk_0926-212928/decoded /data/data/com.termux/files/home/il2cppinject/.work/Phigros_4.0.0.apk_0926-212928/orig.apk
+I: Using Apktool 3.0.3-dirty on orig.apk with 8 threads
+I: Loading resource table...
+I: Baksmaling classes.dex...
+I: Decoding value resources...
+I: Loading resource table from file: /data/data/com.termux/files/home/.local/share/apktool/framework/1.apk
+I: Decoding file resources...
+I: Generating values XMLs...
+I: Decoding AndroidManifest.xml with resources...
+I: Copying original files...
+I: Copying assets...
+I: Copying lib...
+I: Copying unknown files...
+{
+  "mode": "auto",
+  "loader": "imgui.il2cpp.tool.NativeMethods",
+  "files": [
+    "imgui/il2cpp/tool/NativeMethods.smali",
+    "imgui/il2cpp/tool/NativeMethodsBoot.smali"
+  ],
+  "actions": [
+    "com.unity3d.player.UnityPlayerActivity.onCreate ← preload() [patched]",
+    "com.unity3d.player.UnityPlayerActivity.onCreate ← startDelayedDefault() [patched]"
+  ],
+  "activity": "com.unity3d.player.UnityPlayerActivity",
+  "activity_file": "smali/com/unity3d/player/UnityPlayerActivity.smali",
+  "preload_site": "onCreate",
+  "boot_site": "onCreate"
+}
+
+$ apktool b -f -o /data/data/com.termux/files/home/il2cppinject/.work/Phigros_4.0.0.apk_0926-212928/unsigned.apk /data/data/com.termux/files/home/il2cppinject/.work/Phigros_4.0.0.apk_0926-212928/decoded
+I: Using Apktool 3.0.3-dirty on orig.apk with 8 threads
+I: Smaling smali folder into classes.dex...
+I: Building resources with aapt2...
+I: Building apk file...
+I: Importing assets...
+I: Importing lib...
+I: Importing unknown files...
+I: Built apk into: /data/data/com.termux/files/home/il2cppinject/.work/Phigros_4.0.0.apk_0926-212928/unsigned.apk
+
+$ apksigner sign --ks /data/data/com.termux/files/home/il2cppinject/keystore.jks --ks-pass pass:il2cppinject --key-pass pass:il2cppinject --v1-signing-enabled true --v2-signing-enabled true --v3-signing-enabled true --v4-signing-enabled false --alignment-preserved true -out /storage/emulated/0/Download/ilbtool/Phigros_4.0.0_MOD.apk /data/data/com.termux/files/home/il2cppinject/.work/Phigros_4.0.0.apk_0926-212928/unsigned.apk
+

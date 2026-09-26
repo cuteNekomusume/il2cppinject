@@ -1,0 +1,3 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# IL2CPP 注入器启动脚本
+exec python3 "$(dirname "$(readlink -f "$0")")/inject.py" "$@"
