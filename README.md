@@ -152,3 +152,5 @@ Zipalign 用纯 Python 实现（`ziptool.py`），因为 Termux 没有 zipalign 
     仅有 JNI 绑定特征的候选只提示、需显式 `--strip-only` 指定，避免误删正常插件 SDK。
   * **支持改名的加载器**：除了按 JNI 类名定位，还会扫 `System.loadLibrary("<库名>")` 的调用者类，
     把重命名过的加载器一起清掉（清单组件/应用类会跳过）。
+
+   #(注意)这是AI写的，这玩意的稳定性谁都不敢保证，纯吃饱了没事干的项目
